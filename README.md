@@ -14,5 +14,5 @@ The game has four important components, namely the snake, board, score, and food
 7. The game stops when the snake hits the board or itself.
 8. Design is entirely up to you. However, please make sure that the snake, food, and board have different colors.
 
-![Rubrics]
+![Rubrics](https://github.com/JM-Franco/cs135_mp_snake/blob/main/snake_rubric.png)
 
