@@ -267,11 +267,19 @@
 		
 		cmp al, 'w'
 		je next_up
+		cmp al, 'W'
+		je next_up
 		cmp al, 'a'
+		je next_left
+		cmp al, 'A'
 		je next_left
 		cmp al, 's'
 		je next_down
+		cmp al, 'S'
+		je next_down
 		cmp al, 'd'
+		je next_right
+		cmp al, 'D'
 		je next_right
 
 		cmp ah, 48h
@@ -387,11 +395,19 @@
 
 		cmp al, 'w'
 		je new_direction_up
+		cmp al, 'W'
+		je new_direction_up
 		cmp al, 'a'
+		je new_direction_left
+		cmp al, 'A'
 		je new_direction_left
 		cmp al, 's'
 		je new_direction_down
+		cmp al, 'S'
+		je new_direction_down
 		cmp al, 'd'
+		je new_direction_right
+		cmp al, 'D'
 		je new_direction_right
 
 		cmp ah, 48h
@@ -407,11 +423,15 @@
 		new_direction_up:
 		cmp direction, 's'
 		je end_change_direction
+		cmp direction, 'S'
+		je end_change_direction
 		cmp direction_2, 50h
 		je end_change_direction
 		jmp set_new_direction
 		new_direction_left:
 		cmp direction, 'd'
+		je end_change_direction
+		cmp direction, 'D'
 		je end_change_direction
 		cmp direction_2, 4Dh
 		je end_change_direction
@@ -419,11 +439,15 @@
 		new_direction_down:
 		cmp direction, 'w'
 		je end_change_direction
+		cmp direction, 'W'
+		je end_change_direction
 		cmp direction_2, 48h
 		je end_change_direction
 		jmp set_new_direction
 		new_direction_right:
 		cmp direction, 'a'
+		je end_change_direction
+		cmp direction, 'A'
 		je end_change_direction
 		cmp direction_2, 4Bh
 		je end_change_direction
@@ -440,11 +464,19 @@
 		; "Move" by adjusting coordinates of new head in dh and dl and "cutting off" the tail
 		cmp direction, 'w'
 		je move_up
+		cmp direction, 'W'
+		je move_up
 		cmp direction, 'a'
+		je move_left
+		cmp direction, 'A'
 		je move_left
 		cmp direction, 's'
 		je move_down
+		cmp direction, 'S'
+		je move_down
 		cmp direction, 'd'
+		je move_right
+		cmp direction, 'D'
 		je move_right
 
 		cmp direction_2, 48h
@@ -557,7 +589,7 @@
 
 		; Dispense food at chosen location
 		mov al, 0FEh
-		mov bl, 02h
+		mov bl, 0Ch
 		call write_character
 
 		ret
