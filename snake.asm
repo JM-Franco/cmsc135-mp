@@ -35,7 +35,7 @@
 		
 		top_border_loop:
 		mov al, 0DBh
-		mov bl, 02h
+		mov bl, 03h
 		call write_character
 		
 		inc dl
@@ -50,7 +50,7 @@
 
 		left_border_loop:
 		mov ah, 0DBh
-		mov bl, 02h
+		mov bl, 03h
 		call write_character
 		
 		inc dh
@@ -65,7 +65,7 @@
 		
 		right_border_loop:
 		mov al, 0DBh
-		mov bl, 02h
+		mov bl, 03h
 		call write_character
 		
 		inc dh
@@ -81,7 +81,7 @@
 		
 		bottom_border_loop:
 		mov al, 0DBh
-		mov bl, 02h
+		mov bl, 03h
 		call write_character
 		
 		inc dl
